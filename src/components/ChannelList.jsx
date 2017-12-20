@@ -1,13 +1,13 @@
 import React from 'react'
-import propTypes from 'prop-types'
+import PropTypes from 'prop-types'
 import ChannelItem from './ChannelItem'
 
 export default class ChannelList extends React.PureComponent {
   static propTypes = {
-    channelList: propTypes.arrayOf(
-      propTypes.shape({
-        name: propTypes.string,
-        _id: propTypes.string
+    channelList: PropTypes.arrayOf(
+      PropTypes.shape({
+        name: PropTypes.string,
+        _id: PropTypes.string
       })
     )
   }

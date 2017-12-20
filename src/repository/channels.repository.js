@@ -10,3 +10,12 @@ export async function fetchChannels() {
     console.error(e)
   }
 }
+
+export async function postChannel(channel) {
+  try {
+    const res = await agent.post(apiUrl).send(channel)
+    return res.body
+  } catch (e) {
+    console.error(e)
+  }
+}

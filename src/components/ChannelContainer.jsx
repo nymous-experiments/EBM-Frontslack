@@ -1,7 +1,10 @@
 import React from 'react'
 
-import {fetchChannels} from '../repository/channels.repository'
+import './channelContainer.css'
+
+import {fetchChannels, postChannel} from '../repository/channels.repository'
 import ChannelList from './ChannelList'
+import TextInput from './TextInput'
 
 export default class ChannelContainer extends React.PureComponent {
   state = {
@@ -11,15 +14,22 @@ export default class ChannelContainer extends React.PureComponent {
   componentWillMount() {
     fetchChannels()
       .then(results => {
-        console.log(results)
         this.setState({
           channelList: results
         })
       })
   }
 
+  handleNewChannel = (channelName) => {
+    const channel = {name: channelName}
+    postChannel(channel)
+      .then()
+}
+
   render() {
-    console.log('ChannelContainer state', this.state)
-    return <ChannelList channelList={this.state.channelList}/>
+    return <div className="channelContainer">
+      <ChannelList channelList={this.state.channelList}/>
+      <TextInput callback={this.handleNewChannel}/>
+    </div>
   }
 }

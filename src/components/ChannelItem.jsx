@@ -1,11 +1,11 @@
 import React from 'react'
-import propTypes from 'prop-types'
+import PropTypes from 'prop-types'
 
 export default class ChannelItem extends React.PureComponent {
   static propTypes = {
-    channel: propTypes.shape({
-        name: propTypes.string,
-        _id: propTypes.string
+    channel: PropTypes.shape({
+        name: PropTypes.string,
+        _id: PropTypes.string
       })
   }
 
