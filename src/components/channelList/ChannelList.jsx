@@ -15,7 +15,7 @@ export default class ChannelList extends React.PureComponent {
 
   render() {
     return this.props.channelList.map(channel => {
-      return <ChannelItem channel={channel} buttonCallback={this.props.buttonCallback}/>
+      return <ChannelItem key={channel._id} channel={channel} buttonCallback={this.props.buttonCallback}/>
     })
   }
 }
