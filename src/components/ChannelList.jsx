@@ -9,12 +9,13 @@ export default class ChannelList extends React.PureComponent {
         name: PropTypes.string,
         _id: PropTypes.string
       })
-    )
+    ),
+    buttonCallback: PropTypes.func
   }
 
   render() {
     return this.props.channelList.map(channel => {
-      return <ChannelItem channel={channel}/>
+      return <ChannelItem channel={channel} buttonCallback={this.props.buttonCallback}/>
     })
   }
 }

@@ -20,6 +20,7 @@ export default class TextInput extends React.PureComponent {
 
   handleClick = () => {
     this.props.callback(this.state.inputValue)
+    this.setState({inputValue: ''})
   }
 
   render() {

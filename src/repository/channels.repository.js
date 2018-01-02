@@ -19,3 +19,13 @@ export async function postChannel(channel) {
     console.error(e)
   }
 }
+
+export async function deleteChannel(channel) {
+  try {
+    const url = `${apiUrl}/${channel._id}`
+    const res = await agent.delete(url).query()
+    return res.body
+  } catch (e) {
+    console.error(e)
+  }
+}
