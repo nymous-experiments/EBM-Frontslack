@@ -7,7 +7,9 @@ import ChannelContainer from './channelContainer/ChannelContainer'
 class App extends Component {
   render() {
     return (
-      <ChannelContainer className="left"/>
+      <div className="app">
+        <ChannelContainer/>
+      </div>
     );
   }
 }
