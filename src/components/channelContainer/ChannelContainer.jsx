@@ -2,9 +2,9 @@ import React from 'react'
 
 import './channelContainer.css'
 
-import {deleteChannel, fetchChannels, postChannel} from '../repository/channels.repository'
-import ChannelList from './ChannelList'
-import TextInput from './TextInput'
+import {deleteChannel, fetchChannels, postChannel} from '../../repository/channels.repository'
+import ChannelList from '../channelList/ChannelList'
+import TextInput from '../textInput/TextInput'
 
 export default class ChannelContainer extends React.PureComponent {
   state = {
@@ -37,8 +37,12 @@ export default class ChannelContainer extends React.PureComponent {
 
   render() {
     return <div className="channelContainer">
-      <ChannelList channelList={this.state.channelList} buttonCallback={this.handleDeleteChannel}/>
-      <TextInput callback={this.handleNewChannel}/>
+      <div className="channelList">
+        <ChannelList channelList={this.state.channelList} buttonCallback={this.handleDeleteChannel}/>
+      </div>
+      <div className="newChannelInput">
+        <TextInput callback={this.handleNewChannel}/>
+      </div>
     </div>
   }
 }

@@ -1,0 +1,9 @@
+.channelItem {
+    display: flex;
+    margin: 5px;
+}
+
+.channelItem--name {
+    flex: 1;
+    font-size: 1.2em;
+}

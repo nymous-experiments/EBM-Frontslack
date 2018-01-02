@@ -1,6 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+import './textInput.css'
+
 export default class TextInput extends React.PureComponent {
   static propTypes = {
     callback: PropTypes.func
@@ -24,9 +26,9 @@ export default class TextInput extends React.PureComponent {
   }
 
   render() {
-    return <div>
-      <input value={this.state.inputValue} onChange={this.handleChange}/>
-      <button onClick={this.handleClick}>Create</button>
+    return <div className="textInput">
+      <input className="textInput--input" value={this.state.inputValue} placeholder="New channel name..." onChange={this.handleChange}/>
+      <button className="textInput--button" onClick={this.handleClick}>Create</button>
     </div>
   }
 }

@@ -1,6 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+import './channelItem.css'
+
 export default class ChannelItem extends React.PureComponent {
   static propTypes = {
     channel: PropTypes.shape({
@@ -19,9 +21,9 @@ export default class ChannelItem extends React.PureComponent {
   }
 
   render() {
-    return <div>
-      <span>{this.props.channel.name}</span>
-      <button onClick={this.handleClick}>X</button>
+    return <div className="channelItem">
+      <span className="channelItem--name">{this.props.channel.name}</span>
+      <button className="channelItem--deleteButton" onClick={this.handleClick}>X</button>
     </div>
   }
 }

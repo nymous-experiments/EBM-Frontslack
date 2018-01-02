@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
-import ChannelContainer from './ChannelContainer'
+
+import './app.css'
+
+import ChannelContainer from './channelContainer/ChannelContainer'
 
 class App extends Component {
   render() {
     return (
-      <ChannelContainer/>
+      <ChannelContainer className="left"/>
     );
   }
 }

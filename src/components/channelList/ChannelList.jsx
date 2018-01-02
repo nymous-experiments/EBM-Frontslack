@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import ChannelItem from './ChannelItem'
+import ChannelItem from '../channelItem/ChannelItem'
 
 export default class ChannelList extends React.PureComponent {
   static propTypes = {

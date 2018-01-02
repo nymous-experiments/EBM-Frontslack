@@ -1,0 +1,9 @@
+.textInput {
+    display: flex;
+    margin: 5px;
+}
+
+.textInput--input {
+    flex: 1;
+    border-radius: 5px;
+}
