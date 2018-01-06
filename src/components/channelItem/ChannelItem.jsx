@@ -29,7 +29,11 @@ export default class ChannelItem extends React.PureComponent {
 
   render() {
     return <div className="channelItem">
-      <span className="channelItem--name" onClick={this.handleSelect}>{this.props.channel.name}</span>
+      <span
+        className={`channelItem--name ${this.props.isSelected ? 'channelItem--selected' : ''}`}
+        onClick={this.handleSelect}>
+        {this.props.channel.name}
+      </span>
       <button className="channelItem--deleteButton" onClick={this.handleDelete}>X</button>
     </div>
   }

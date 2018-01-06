@@ -7,3 +7,8 @@
     flex: 1;
     font-size: 1.2em;
 }
+
+.channelItem--selected {
+    color: red;
+    font-size: 1.3em;
+}

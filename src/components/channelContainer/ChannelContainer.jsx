@@ -49,7 +49,7 @@ export default class ChannelContainer extends React.PureComponent {
       <div className="channelList">
         <ChannelList
           channelList={this.state.channelList}
-          selectedChannel={this.state.selectedChannel}
+          selectedChannel={this.props.selectedChannel}
           selectChannelCallback={this.props.selectChannelCallback}
           deleteCallback={this.handleDeleteChannel}/>
       </div>
