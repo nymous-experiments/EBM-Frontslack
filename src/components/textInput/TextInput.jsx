@@ -25,9 +25,21 @@ export default class TextInput extends React.PureComponent {
     this.setState({inputValue: ''})
   }
 
+  handleKeyDown = (event) => {
+    if (event.which === 13) {
+      event.preventDefault()
+      this.handleClick()
+    }
+  }
+
   render() {
     return <div className="textInput">
-      <input className="textInput--input" value={this.state.inputValue} placeholder="New channel name..." onChange={this.handleChange}/>
+      <input
+        className="textInput--input"
+        value={this.state.inputValue}
+        placeholder="New channel name..."
+        onChange={this.handleChange}
+        onKeyDown={this.handleKeyDown}/>
       <button className="textInput--button" onClick={this.handleClick}>Create</button>
     </div>
   }
