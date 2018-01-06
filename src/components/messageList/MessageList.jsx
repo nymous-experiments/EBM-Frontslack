@@ -15,6 +15,10 @@ export default class MessageList extends React.PureComponent {
     )
   }
 
+  static defaultProps = {
+    messageList: []
+  }
+
   render() {
     return this.props.messageList.map(message => {
       return <MessageItem message={message}/>

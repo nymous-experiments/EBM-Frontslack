@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 import './channelContainer.css'
 
@@ -7,8 +8,16 @@ import ChannelList from '../channelList/ChannelList'
 import TextInput from '../textInput/TextInput'
 
 export default class ChannelContainer extends React.PureComponent {
+  static propTypes = {
+    selectedChannel: PropTypes.shape({
+      name: PropTypes.string,
+      _id: PropTypes.string
+    }),
+    selectChannelCallback: PropTypes.func
+  }
+
   state = {
-    channelList: []
+    channelList: [],
   }
 
   componentWillMount() {
@@ -38,7 +47,11 @@ export default class ChannelContainer extends React.PureComponent {
   render() {
     return <div className="channelContainer">
       <div className="channelList">
-        <ChannelList channelList={this.state.channelList} buttonCallback={this.handleDeleteChannel}/>
+        <ChannelList
+          channelList={this.state.channelList}
+          selectedChannel={this.state.selectedChannel}
+          selectChannelCallback={this.props.selectChannelCallback}
+          deleteCallback={this.handleDeleteChannel}/>
       </div>
       <div className="newChannelInput">
         <TextInput callback={this.handleNewChannel}/>

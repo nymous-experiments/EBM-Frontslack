@@ -29,3 +29,13 @@ export async function deleteChannel(channel) {
     console.error(e)
   }
 }
+
+export async function fetchMessages(channel) {
+  try {
+    const url = `${apiUrl}/${channel._id}/messages`
+    const res = await agent.get(url).query()
+    return res.body
+  } catch (e) {
+    console.error(e)
+  }
+}

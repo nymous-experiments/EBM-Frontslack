@@ -10,12 +10,29 @@ export default class ChannelList extends React.PureComponent {
         _id: PropTypes.string
       })
     ),
-    buttonCallback: PropTypes.func
+    selectedChannel: PropTypes.shape({
+      name: PropTypes.string,
+      _id: PropTypes.string
+    }),
+    selectChannelCallback: PropTypes.func,
+    deleteCallback: PropTypes.func
+  }
+
+  static defaultProps = {
+    channelList: [],
+    selectedChannel: null,
+    selectChannelCallback: () => {},
+    deleteCallback: () => {}
   }
 
   render() {
     return this.props.channelList.map(channel => {
-      return <ChannelItem key={channel._id} channel={channel} buttonCallback={this.props.buttonCallback}/>
+      return <ChannelItem
+        key={channel._id}
+        channel={channel}
+        isSelected={channel === this.props.selectedChannel}
+        selectCallback={this.props.selectChannelCallback}
+        deleteCallback={this.props.deleteCallback}/>
     })
   }
 }

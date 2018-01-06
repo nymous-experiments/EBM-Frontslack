@@ -9,21 +9,28 @@ export default class ChannelItem extends React.PureComponent {
       name: PropTypes.string,
       _id: PropTypes.string
     }),
-    buttonCallback: PropTypes.func
+    isSelected: PropTypes.bool,
+    selectCallback: PropTypes.func,
+    deleteCallback: PropTypes.func
   }
 
   static defaultProps = {
-    buttonCallback: () => {}
+    selectCallback: () => {},
+    deleteCallback: () => {}
   }
 
-  handleClick = () => {
-    this.props.buttonCallback(this.props.channel)
+  handleDelete = () => {
+    this.props.deleteCallback(this.props.channel)
+  }
+
+  handleSelect = () => {
+    this.props.selectCallback(this.props.channel)
   }
 
   render() {
     return <div className="channelItem">
-      <span className="channelItem--name">{this.props.channel.name}</span>
-      <button className="channelItem--deleteButton" onClick={this.handleClick}>X</button>
+      <span className="channelItem--name" onClick={this.handleSelect}>{this.props.channel.name}</span>
+      <button className="channelItem--deleteButton" onClick={this.handleDelete}>X</button>
     </div>
   }
 }
