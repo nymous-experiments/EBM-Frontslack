@@ -1,5 +1,6 @@
-import agent from 'superagent'
-const apiUrl = 'http://afternoon-oasis-70412.herokuapp.com/api/channels'
+import agent from 'superagent';
+import config from '../config';
+const apiUrl = `${config.remote.host}/api/channels`;
 
 export async function fetchChannels() {
   try {

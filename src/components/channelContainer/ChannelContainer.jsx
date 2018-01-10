@@ -1,6 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+import socket from '../../services/sockets';
+
 import './channelContainer.css'
 
 import {deleteChannel, fetchChannels, postChannel} from '../../repository/channels.repository'
@@ -21,6 +23,9 @@ export default class ChannelContainer extends React.PureComponent {
   }
 
   componentWillMount() {
+    socket.on('INVALIDATE_CHANNEL_LIST', () => {
+      this.getList();
+    });
     this.getList()
   }
 
