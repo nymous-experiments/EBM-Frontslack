@@ -1,9 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import {fetchMessages} from '../../repository/channels.repository'
+import {fetchMessages, postMessage} from '../../repository/channels.repository'
 import MessageList from '../messageList/MessageList'
 import MessageChannelTitle from '../messageChannelTitle/MessageChannelTitle'
+import TextInput from '../textInput/TextInput'
 
 export default class MessageContainer extends React.PureComponent {
   static propTypes = {
@@ -40,10 +41,22 @@ export default class MessageContainer extends React.PureComponent {
       })
   }
 
+  handleNewMessage = (messageText) => {
+    const message = {
+      message: messageText,
+      author: 'Moi'
+    }
+    postMessage(this.props.channel, message)
+      .then(() => {
+        this.getMessages(this.props.channel)
+      })
+  }
+
   render() {
     return <div>
       <MessageChannelTitle channel={this.props.channel}/>
       <MessageList messageList={this.state.messageList}/>
+      <TextInput callback={this.handleNewMessage}/>
     </div>
   }
 }
